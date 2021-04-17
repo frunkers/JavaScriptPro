@@ -2,3 +2,157 @@
 @import 'mixins.scss';
 @import 'fonts.scss';
 @import 'reset.scss';
+
+body {
+	min-height: 100vh;
+	font-family: 'Poppins', sans-serif;
+	background: #060c21;
+}
+
+.page-header {
+	padding-top: 20px;
+	display: flex;
+	justify-content: center;
+
+	.header-list {
+		display: flex;
+
+		&__item {
+			color: #fff;
+			margin: 0 10px;
+		}
+
+		.cart {
+			background: transparent;
+			border: none;
+			color: white;
+			font-size: 20px;
+			margin-left: 30px;
+			cursor: pointer;
+		}
+
+		.cart-block {
+			width: 500px;
+			height: 500px;
+			background: #ccc;
+			position: fixed;
+			z-index: 10;
+			background: rgba(255, 255, 255, 0);
+			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+			backdrop-filter: blur(60.0px);
+			-webkit-backdrop-filter: blur(60.0px);
+			border-radius: 10px;
+			border: 1px solid rgba(255, 255, 255, 0.19);
+			top: calc(50vh - 250px);
+			left: calc(50vw - 250px);
+			display: none;
+			color: #fff;
+
+			.cart-icon {
+				content: '';
+				position: absolute;
+				display: block;
+				cursor: pointer;
+				background-image: url(../img/times-circle-solid.svg);
+				top: 12px;
+				right: 12px;
+				width: 24px;
+				height: 24px;
+			}
+
+			.item {
+				padding: 10px;
+				display: block;
+			}
+		}
+	}
+}
+
+.products {
+	width: 100%;
+	margin-top: 150px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	h2 {
+		font-size: 30px;
+		display: block;
+		width: 100%;
+		color: #fff;
+		text-align: center;
+		padding-bottom: 30px;
+	}
+
+	.product-item {
+		padding: 100px 40px;
+		background: #060c21;
+		border: 1px solid black;
+		position: relative;
+		margin: 0 15px;
+		color: #fff;
+
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			transform: skew(2.5deg, 2.5deg);
+			background: rgba(255, 255, 255, 0.00);
+			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+			backdrop-filter: blur(20.0px);
+			-webkit-backdrop-filter: blur(20.0px);
+			border-radius: 10px;
+			border: 1px solid rgba(255, 255, 255, 0.18);
+		}
+
+		h3 {
+			font-size: 22px;
+		}
+
+		p {
+			margin-top: 15px;
+		}
+
+		.btn {
+			padding: 12px;
+			border: 1px solid #fff;
+			background: transparent;
+			color: #fff;
+			margin-top: 40px;
+			cursor: pointer;
+			transition: 0.3s;
+
+			&:hover {
+				background: #fff;
+				color: black;
+			}
+
+			&:active {
+				transition: 0s;
+				background: transparent;
+				color: #fff;
+			}
+		}
+
+		&:nth-of-type(1)::before {
+			background: linear-gradient(315deg, #ff0057, #e64a19);
+		}
+
+		&:nth-of-type(2)::before {
+			background: linear-gradient(315deg, #89ff00, #00bcd4);
+		}
+
+		&:nth-of-type(3)::before {
+			background: linear-gradient(315deg, #e91e63, #5d02ff);
+		}
+
+		&:nth-of-type(4)::before {
+			background: linear-gradient(315deg, #ff0000, #ffc107);
+		}
+	}
+}
